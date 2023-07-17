@@ -5,12 +5,19 @@ import pyautogui #to operate library of computer operations like mouse and keybo
 
 url='http://192.168.1.5:8080/video' #to connect camera of phone with computer using ip webcam app
 cap = cv2.VideoCapture(url)
-hand_detector = mp.solutions.hands.Hands()
+
+hand_detector = mp.solutions.hands.Hands()#calling files from google mediapipe database
 drawing_utils = mp.solutions.drawing_utils
-screen_width, screen_height = pyautogui.size()
+
+
+screen_width, screen_height = pyautogui.size() #getting size of coverage of camera sight
+
 index_y = 0
+
 while True:
-    _, frame = cap.read()
+    _, frame = cap.read() #
+
+
     frame = cv2.flip(frame, 1)
     frame_height, frame_width, _ = frame.shape
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
